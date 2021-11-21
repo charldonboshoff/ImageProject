@@ -9,7 +9,7 @@ namespace ImageProject.Infrastructure
     public interface IMyMediaRepo
     {
         List<MyMedia> GetAll();
-        MyMedia GetId(int Id);
+        MyMedia GetById(int Id);
         void Insert(MyMedia myMediaManager);
         void Update(MyMedia myMediaManager);
         void Delete(int id);
