@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using ImageProject.Models;
+using ImageProject.ViewModels.AlbumCategoryViewModels;
+using ImageProject.ViewModels.MyMediaViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +13,12 @@ namespace ImageProject.Automapper
     {
         public MyProfile()
         {
-            //CreateMap<AlbumCategory, AlbumCategoryViewModel>().ReverseMap();
-            //CreateMap<AlbumCategory, EditAlbumCategoryViewModel>().ReverseMap();
-            //CreateMap<AlbumCategory, CreateAlbumCategoryViewModel>().ReverseMap();
-            //CreateMap<AlbumCategory, AlbumCategoryComponentViewModel>();
+            CreateMap<AlbumCategory, AlbumCategoryViewModel>().ReverseMap();
+            CreateMap<AlbumCategory, EditAlbumCategoryViewModel>().ReverseMap();
+            CreateMap<AlbumCategory, CreateAlbumCategoryViewModel>().ReverseMap();
 
-            //CreateMap<MyMedia, MyMediaEditViewModel>().ReverseMap();
-            //CreateMap<MyMedia, MyMediaViewModel>().ForMember(d => d.AlbumCategoryTitle, opt => opt.MapFrom(srce => srce.AlbumCategory.Title));
+            CreateMap<MyMedia, MyMediaEditViewModel>().ReverseMap();
+            CreateMap<MyMedia, MyMediaViewModel>().ForMember(d => d.AlbumCategoryTitle, opt => opt.MapFrom(srce => srce.AlbumCategory.Title));
         }
     }
 }
