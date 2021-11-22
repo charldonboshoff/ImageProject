@@ -7,6 +7,7 @@ namespace ImageProject.ViewModels.AlbumCategoryViewModels
 {
     public class CreateAlbumCategoryViewModel
     {
+        public int Id { get; set; }
         public string Title { get; set; }
     }
 }
