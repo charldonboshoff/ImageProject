@@ -1,4 +1,5 @@
 using ImageProject.Automapper;
+using ImageProject.Data;
 using ImageProject.Infrastructure;
 using ImageProject.Models.ImageProjectDBContext;
 using ImageProject.Services;

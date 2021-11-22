@@ -1,6 +1,6 @@
-﻿using ImageProject.Infrastructure;
+﻿using ImageProject.Data;
+using ImageProject.Infrastructure;
 using ImageProject.Models;
-using ImageProject.Models.ImageProjectDBContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;

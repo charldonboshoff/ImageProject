@@ -1,4 +1,5 @@
-﻿using ImageProject.Infrastructure;
+﻿using ImageProject.Data;
+using ImageProject.Infrastructure;
 using ImageProject.Models.ImageProjectDBContext;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;

@@ -1,8 +1,18 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<ImageProject.ViewModels.MyMediaViewModels.MyMediaViewModel>
+
+@{
+    ViewData["Title"] = "Index";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        { 
+            <div class="col-md-3">
+                <a href="@("/uploads/" + item.ImagePath)" target="_parent">
+                    <img src="@("/uploads/" + item.ImagePath)" alt="Lights" class="img-thumbnail" />
+                </a>
+            </div>
+        }
+    </div>
 </div>

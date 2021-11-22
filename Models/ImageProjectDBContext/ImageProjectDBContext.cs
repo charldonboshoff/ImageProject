@@ -11,7 +11,7 @@ namespace ImageProject.Models.ImageProjectDBContext
     {
         private readonly DbContextOptions _options;
         //Create constructor
-        public ImageProjectDBContext(DbContextOptions options) : base(options)
+        public ImageProjectDBContext(DbContextOptions<ImageProjectDBContext> options) : base(options)
         {
             _options = options;
         }
