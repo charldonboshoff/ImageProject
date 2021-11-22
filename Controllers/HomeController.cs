@@ -1,4 +1,7 @@
-﻿using ImageProject.Models;
+﻿using AutoMapper;
+using ImageProject.Infrastructure;
+using ImageProject.Models;
+using ImageProject.ViewModels.MyMediaViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,16 +16,21 @@ namespace ImageProject.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _logger = logger;
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var model = _unitOfWork.MyMediaRepo.GetAll();
+            var mvm = _mapper.Map<List<MyMediaViewModel>>(model);
+
+            return View(mvm);
         }
 
         public IActionResult Privacy()
