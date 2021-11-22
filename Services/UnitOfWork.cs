@@ -3,6 +3,8 @@ using ImageProject.Infrastructure;
 using ImageProject.Models.ImageProjectDBContext;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -43,7 +45,29 @@ namespace ImageProject.Services
         {
             _context.SaveChanges();
         }
+        /*
+        public CloudBlobContainer BlobContainer(string azureStorageConnectionString, string containerName)
+        {
+            var azureStorageAccount = CloudStorageAccount.Parse(azureStorageConnectionString);
+            var cloudBlobClient = azureStorageAccount.CreateCloudBlobClient();
+            return cloudBlobClient.GetContainerReference(containerName);
+        }
 
+        public async Task<IActionResult> UploadNewImage(IFormFile aFile, string title)
+        {
+            var container = anImageService.BlobContainer(AzureStorageConnectionString, "images");
+            var content = ContentDispositionHeaderValue.Parse(aFile.ContentDisposition);
+            var fileName = content.FileName.Trim('"');
+
+            //Get a reference to a block blob
+            var blockBlob = container.GetBlockBlobReference(fileName);
+
+            await blockBlob.UploadFromStreamAsync(aFile.OpenReadStream());
+            await anImageService.SetImage(title, blockBlob.Uri);
+
+            return RedirectToAction("Index");
+        }
+        */
         [Obsolete]
         public async void UploadFile(List<IFormFile> files)
         {

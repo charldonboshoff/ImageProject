@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.Configuration;
 using ImageProject.Infrastructure;
 using ImageProject.Models;
 using ImageProject.ViewModels.AlbumCategoryViewModels;
@@ -16,11 +17,15 @@ namespace ImageProject.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        //private IConfiguration _configuration;
+        //private string AzureStorageConnectionString { get; }
 
-        public MyMediaController(IUnitOfWork unitOfWork, IMapper mapper)
+        public MyMediaController(IUnitOfWork unitOfWork, IMapper mapper)//, IConfiguration configuration)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            //_configuration = configuration;
+            //AzureStorageConnectionString = _configuration["AzureStorageConnectionString"];
         }
         public ActionResult Index()
         {
